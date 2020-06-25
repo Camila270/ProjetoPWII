@@ -11,7 +11,7 @@
 
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="titulo" name="titulo" type="text" class="validate">
+                            <input id="titulo" name="titulo" type="text" class="validate" required>
                             <label for="titulo">Titulo </label>
                         </div>
                     </div>
@@ -19,7 +19,7 @@
                     <div class="row">
                         <div class="row">
                             <div class="input-field col s12">
-                                <textarea id="avaliacao" name="avaliacao" class="materialize-textarea"></textarea>
+                                <textarea id="avaliacao" name="avaliacao" class="materialize-textarea" required></textarea>
                                 <label for="avaliacao">O que você achou?</label>
                             </div>
                         </div>
