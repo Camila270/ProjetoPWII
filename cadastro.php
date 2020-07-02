@@ -35,7 +35,7 @@
                     <div class="file-field input-field">
                         <div class="btn">
                             <span>Capa</span>
-                            <input type="file">
+                            <input type="file" name ="capa_file" accept="images/*">
                         </div>
                         <div class="file-path-wrapper">
                             <input class="file-path validate" type="text" name="capa">

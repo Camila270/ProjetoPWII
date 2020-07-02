@@ -29,10 +29,10 @@ class LivrosRepositoryPDO{
         VALUES (:titulo,:capa, :avaliacao, :nota )";
         
         $stmt=$this->conexao->prepare($sql);
-        $stmt->bindValue(':titulo', $livro->titulo, SQLITE3_TEXT);
-        $stmt->bindValue(':capa', $livro->capa, SQLITE3_TEXT);
-        $stmt->bindValue(':avaliacao', $livro->avaliacao, SQLITE3_TEXT);
-        $stmt->bindValue(':nota', $livro->nota, SQLITE3_FLOAT);
+        $stmt->bindValue(':titulo', $livro->titulo, PDO::PARAM_STR);
+        $stmt->bindValue(':capa', $livro->capa, PDO::PARAM_STR);
+        $stmt->bindValue(':avaliacao', $livro->avaliacao, PDO::PARAM_STR);
+        $stmt->bindValue(':nota', $livro->nota, PDO::PARAM_STR);
         
         return $stmt->execute();
 
