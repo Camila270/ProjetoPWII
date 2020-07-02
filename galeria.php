@@ -26,15 +26,15 @@ $livros = $LivrosRepository->listarTodos();
         <div class="col s12 m6 l3">
             <div class="card">
                 <div class="card-image">
-                    <img src=<?php echo $livro["capa"] ?>>
+                <img src="<?php echo $livro->capa?>">
                     <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
                 </div>
                 <div class="card-content">
-                    <span class="card-title black-text"><?php echo $livro["titulo"] ?></span>
+                    <span class="card-title black-text"><?php echo $livro->titulo?></span>
                     <p class="valign-wrapper">
-                        <i class="material-icons amber-text ">star</i><?php echo $livro["nota"] ?>
+                        <i class="material-icons amber-text ">star</i><?php echo $livro->nota?>
                     </p>
-                    <p><?php echo $livro["avaliacao"] ?></p>
+                    <p><?php echo $livro->avaliacao?></p>
                 </div>
             </div>
 

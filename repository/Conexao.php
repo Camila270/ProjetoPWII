@@ -1,7 +1,7 @@
 <?php
 
 class Conexao{
-    public static function criar(){
-        return new SQLite3("livros.db");
+    public static function criar():PDO{
+        return new PDO("sqlite:livros.db");
     }
 }
