@@ -1,10 +1,12 @@
-<?php include "cabecalho.php"?>
+<?php include "cabecalho.php" ?>
 <?php
 
-$bd = new SQLite3("livros.db");
-$sql = "SELECT * FROM livros";
-$livros = $bd->query($sql);
- 
+require "./repository/LivrosRepositoryPDO.php";
+
+$LivrosRepository = new LivrosRepositoryPDO();
+$livros = $LivrosRepository->listarTodos();
+
+
 /*$livro1 = [
   "titulo"=>"Eu sou a Lenda",
   "nota"=>8.5,
@@ -17,41 +19,41 @@ $livros = $bd->query($sql);
 
 
 <div class="row">
-    <?php 
-while ($livro = $livros->fetchArray()):
-                 
-      ?>
-    <div class="col s12 m6 l3">
-        <div class="card">
-            <div class="card-image">
-                <img src=<?php echo $livro ["capa"]?>>
-                <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+    <?php
+    foreach ($livros as $livro) :
+
+    ?>
+        <div class="col s12 m6 l3">
+            <div class="card">
+                <div class="card-image">
+                    <img src=<?php echo $livro["capa"] ?>>
+                    <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+                </div>
+                <div class="card-content">
+                    <span class="card-title black-text"><?php echo $livro["titulo"] ?></span>
+                    <p class="valign-wrapper">
+                        <i class="material-icons amber-text ">star</i><?php echo $livro["nota"] ?>
+                    </p>
+                    <p><?php echo $livro["avaliacao"] ?></p>
+                </div>
             </div>
-            <div class="card-content">
-                <span class="card-title black-text"><?php echo $livro ["titulo"]?></span>
-                <p class="valign-wrapper">
-                    <i class="material-icons amber-text ">star</i><?php echo $livro ["nota"]?>
-                </p>
-                <p><?php echo $livro ["avaliacao"]?></p>
-            </div>
+
         </div>
 
-    </div>
-
-    <?php endwhile ?>
+    <?php endforeach ?>
 </div>
 
 
 
 </body>
 
-<?php 
-if(isset($_GET["msg"])) : ?>
-<script>
-M.toast({
-    html: '<?php echo $_GET["msg"] ?>'
-});
-</script>
+<?php
+if (isset($_GET["msg"])) : ?>
+    <script>
+        M.toast({
+            html: '<?php echo $_GET["msg"] ?>'
+        });
+    </script>
 <?php endif ?>
 
 </html>
